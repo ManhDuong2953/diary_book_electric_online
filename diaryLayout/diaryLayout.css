@@ -1,0 +1,117 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+}
+
+header,
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+header h1,
+ul p {
+    margin: 0;
+}
+
+ul {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+li {
+    background-color: aqua;
+    position: relative;
+    padding: 30px;
+    margin: 30px -30px;
+    border-top: 15px solid rgb(31, 11, 249);
+}
+
+h2 {
+    color: #333;
+    margin-top: 0;
+}
+
+p {
+    line-height: 1.5;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+}
+
+
+@import url(https://fonts.googleapis.com/css?family=Poppins:500);
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
+
+.snip1547 {
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 17.5px;
+    font-weight: 500;
+    line-height: 48px;
+    margin: 15px 30px;
+    outline: none;
+    padding: 0 43px 0 0;
+    position: absolute;
+    text-transform: uppercase;
+    top: -39px;
+    left: -151px;
+}
+
+.snip1547 span {
+    background-color: #c72544;
+    border-radius: 5px 0 0 5px;
+    padding: 10px 20px;
+    -webkit-transition: all 0.15s ease-in;
+    transition: all 0.15s ease-in;
+}
+
+
+.snip1547:hover span,
+.snip1547.hover span {
+    background-color: #ba2340;
+}
+
+.snip1547:hover:after,
+.snip1547.hover:after {
+    margin-top: -5px;
+    background-color: #da3655;
+    box-shadow: -5px 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.create-new-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 15px -149px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+i.fa-solid.fa-square-plus {
+    padding-right: 4px;
+}
+
+.create-new-button:hover{
+    background-color: rgb(125, 220, 36);
+}

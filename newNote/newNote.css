@@ -1,0 +1,66 @@
+.main-newNote {
+    background-color: aliceblue;
+    min-height: 100vh;
+}
+
+.nav {
+    height: 50px;
+    width: 100vw;
+    padding: 0 50px;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.home-newnote {
+    color: #fff;
+}
+
+form.newnote-form {
+    width: 1200px;
+    margin: 100px auto;
+}
+
+
+
+form {
+    margin: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+form input[type="text"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Sono:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,300&family=Oswald&family=Raleway:wght@700;900&family=Roboto:wght@500&family=Sono:wght@600&display=swap');
+
+#title {
+    color: blue;
+    font-size: larger;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+}
+
+#content {
+    font-family: 'Sono', sans-serif;
+    font-size: 18px;
+}
