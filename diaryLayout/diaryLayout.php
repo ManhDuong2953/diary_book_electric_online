@@ -12,8 +12,6 @@
 </head>
 
 
-<!-- ./diaryLayout.css?v=<?php echo time(); ?> -->
-
 <body>
     <header>
         <a href="../homeLayout/HomeLayout.html">
@@ -23,7 +21,8 @@
             <img src="https://kynguyenlamdep.com/wp-content/uploads/2022/06/avatar-cute-vui-nhon.jpg" class="avt" alt="">
             <?php
             session_start();
-            echo $_SESSION["user_name"];
+            $userNameSession = $_SESSION["user_name"];
+            echo $userNameSession;
             ?>
         </p>
     </header>
@@ -32,37 +31,50 @@
         <a href="../newNote/newNote.html"><button class="create-new-button"><i class="fa-solid fa-square-plus"></i>Tạo
                 mới</button></a>
         <mark style="color: red;">Chào <?php
-            echo $_SESSION["user_name"];
-            ?>, khởi động ngày mới bằng một chút ghi chú chứ nhỉ :))</mark>
-
-        <li>
-            <button class="snip1547 hover"><span>29/05/2003</span></button>
-            <h2>Section 1</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tristique dolor eu quam tempus
-                convallis. Aenean semper lacinia sapien, ut venenatis justo pharetra at. Sed ullamcorper dapibus
-                nulla, et scelerisque leo ultricies ac. Nunc imperdiet, ipsum id viverra euismod, ex orci eleifend
-                nisi, ac pretium nibh nibh in felis. Nunc faculisis hendrerit diam eu elementum.</p>
-        </li>
+                                        echo $userNameSession;
+                                        ?>, khởi động ngày mới bằng một chút ghi chú chứ nhỉ :))</mark>
 
 
-        <li>
-            <button class="snip1547 hover"><span>29/05/2003</span></button>
-            <h2>Section 1</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tristique dolor eu quam tempus
-                convallis. Aenean semper lacinia sapien, ut venenatis justo pharetra at. Sed ullamcorper dapibus
-                nulla, et scelerisque leo ultricies ac. Nunc imperdiet, ipsum id viverra euismod, ex orci eleifend
-                nisi, ac pretium nibh nibh in felis. Nunc facilisis hendrerit diam eu elementum.</p>
-        </li>
+        <?php
+        $dsn = 'mysql:host=localhost;dbname=bookstore';
+        $userNameMSQ = 'root';
+        $passwordMSQ = 'password';
+        try {
+            $pdo = new PDO($dsn, $userNameMSQ, $passwordMSQ);
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            echo 'Kết nối đến cơ sở dữ liệu thất bại: ' . $e->getMessage();
+        }
+        $sql_select_ctx = $pdo->prepare("select * from list_book where user_id = (select USER_ID from user where user_name = '$userNameSession' )");
+        $sql_select_ctx->execute();
+        $resultCtx = $sql_select_ctx->fetchAll(PDO::FETCH_ASSOC);
+        ?>
+
+        <?php for ($i = 0; $i < count($resultCtx); $i++) { ?>
+            <li>
+                <button class="snip1547 hover">
+                    <span>
+                        <?php
+                        echo $resultCtx[count($resultCtx)-$i-1]["DATE_PUSH"];
+                        ?>
+                    </span>
+                </button>
+    
+    
+                <h2><?php
+    
+                    echo $resultCtx[count($resultCtx)-$i-1]["TITLE_BOOK"];
+                    ?></h2>
+                <p>
+                    <?php
+    
+                    echo $resultCtx[count($resultCtx)-$i-1]["CONTENT_BOOK"];
+                    ?>
+                </p>
+            </li>
+        <?php } ?>
 
 
-        <li>
-            <button class="snip1547 hover"><span>29/05/2003</span></button>
-            <h2>Section 1</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tristique dolor eu quam tempus
-                convallis. Aenean semper lacinia sapien, ut venenatis justo pharetra at. Sed ullamcorper dapibus
-                nulla, et scelerisque leo ultricies ac. Nunc imperdiet, ipsum id viverra euismod, ex orci eleifend
-                nisi, ac pretium nibh nibh in felis. Nunc facilisis hendrerit diam eu elementum.</p>
-        </li>
 
     </ul>
     <footer>
